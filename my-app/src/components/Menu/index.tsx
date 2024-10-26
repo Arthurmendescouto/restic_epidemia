@@ -8,7 +8,6 @@ const MenuContainer = styled.View`
   right: 0;
   background-color: #000000; /* Cor do container do menu */
   padding: 10px;
-  border-radius: 5px;
   width: 270px; /* Ajuste a largura conforme necessário */
   height: 800px; /* Faz o menu ocupar 100% da altura */
   

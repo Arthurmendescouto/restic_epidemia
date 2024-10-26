@@ -25,8 +25,8 @@ export const ButtonWrapper = styled.View`
 export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
   background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ececec')};
   padding: 25px;
+  width: ${({isOpen})=>(isOpen?270:70)};
   justify-content: center;
-  border-radius: 5px;
   height: 100%;
   align-self: flex-end; /* Posiciona o ícone no final do ButtonWrapper */
 `;
