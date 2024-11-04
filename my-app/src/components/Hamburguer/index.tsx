@@ -36,16 +36,16 @@ export const Menu: React.FC<MenuProps> = ({ isVisible, onClose, navigation }) =>
   return (
     <MenuContainer>
       <MenuButton onPress={() => { navigation.navigate('NovaPagina'); onClose(); }}>
-        <MenuText>Arroz</MenuText>
+        <MenuText>ex1</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Feijão</MenuText>
+        <MenuText>ex2</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Macarrão</MenuText>
+        <MenuText>ex3</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Salada</MenuText>
+        <MenuText>ex4</MenuText>
       </MenuButton>
     </MenuContainer>
   );
