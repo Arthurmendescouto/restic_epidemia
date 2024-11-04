@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import { NavigationProp } from '@react-navigation/native';
 
 const MenuContainer = styled.View`
   position: absolute;
@@ -10,8 +11,6 @@ const MenuContainer = styled.View`
   padding: 10px;
   width: 270px; /* Ajuste a largura conforme necessário */
   height: 800px; /* Faz o menu ocupar 100% da altura */
-  
-  elevation: 5; /* Sombra para Android */
   z-index: 10; /* Garante que o menu fique acima de outros elementos */
 `;
 
@@ -28,25 +27,25 @@ const MenuText = styled(Text)`
 interface MenuProps {
   isVisible: boolean;
   onClose: () => void;
+  navigation: NavigationProp<any>; // Certifique-se de que a prop navigation está aqui
 }
 
-export const Menu: React.FC<MenuProps> = ({ isVisible, onClose }) => {
+export const Menu: React.FC<MenuProps> = ({ isVisible, onClose, navigation }) => {
   if (!isVisible) return null; // Não renderiza nada se não estiver visível
 
   return (
     <MenuContainer>
-      {/* Quatro opções, todas com o texto "Arroz" */}
-      <MenuButton onPress={onClose}>
+      <MenuButton onPress={() => { navigation.navigate('NovaPagina'); onClose(); }}>
         <MenuText>Arroz</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>feijao</MenuText>
+        <MenuText>Feijão</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Arroz</MenuText>
+        <MenuText>Macarrão</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Arroz</MenuText>
+        <MenuText>Salada</MenuText>
       </MenuButton>
     </MenuContainer>
   );
