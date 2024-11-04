@@ -40,7 +40,7 @@ export const Menu: React.FC<MenuProps> = ({ isVisible, onClose }) => {
         <MenuText>Arroz</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
-        <MenuText>Arroz</MenuText>
+        <MenuText>feijao</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
         <MenuText>Arroz</MenuText>

@@ -2,7 +2,7 @@ import { Container, ButtonWrapper, Hamburger } from "./styles";
 import { Text } from "react-native";
 import React, { useState } from "react";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Menu } from '../Menu'; // Importe o Menu aqui
+import { Menu } from '../Hamburguer'; // Importe o Menu aqui
 
 export function Header() {
     const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar a visibilidade do menu
