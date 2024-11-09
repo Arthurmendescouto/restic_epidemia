@@ -4,19 +4,19 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Header } from './src/components/header'; // Certifique-se de que o caminho esteja correto
+import { Header } from './src/components/header';
 import Main from './src/components/main';
 import "@expo/metro-runtime";
 
-// Criação do Stack Navigator
+
 const Stack = createNativeStackNavigator();
 
-// Página Principal
+
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Página Principal </Text>
-      <Header navigation={navigation} /> {/* Passa a prop de navegação aqui */}
+      <Text style={styles.title}>Página Principal</Text>
+      <Header navigation={navigation} /> 
       <Main navigation={navigation} />
       
     </View>
@@ -40,12 +40,12 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ headerShown: false }} // Oculta o header na página Home
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="NovaPagina"
           component={NewScreen}
-          options={{ title: 'Nova Página' }} // Personaliza o título do header na NovaPagina
+          options={{ title: 'Nova Página' }} 
         />
       </Stack.Navigator>
       <StatusBar style="auto" />
