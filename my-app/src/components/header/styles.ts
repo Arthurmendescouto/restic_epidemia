@@ -13,7 +13,7 @@ export const Container = styled.View`
 `;
 
 export const ButtonWrapper = styled.View`
-  background-color: green;
+  background-color: #ececec;
   width: 100%;
   height: 90px;
   flex-direction: row;

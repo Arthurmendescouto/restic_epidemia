@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Página Principal</Text>
+      <Text style={styles.title}>Página Principal </Text>
       <Header navigation={navigation} /> {/* Passa a prop de navegação aqui */}
       <Main navigation={navigation} />
       
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#990101',
+    backgroundColor: '#d4d4d4',
   },
   title: {
     fontSize: 20,

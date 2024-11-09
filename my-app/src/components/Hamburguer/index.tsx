@@ -14,13 +14,13 @@ const MenuContainer = styled.View`
   z-index: 10; /* Garante que o menu fique acima de outros elementos */
 `;
 
-const MenuButton = styled(TouchableOpacity)`
+const MenuButton = styled.TouchableOpacity`
   padding: 35px;
   border-bottom-width: 1px;
   border-bottom-color: #ccc;
 `;
 
-const MenuText = styled(Text)`
+const MenuText = styled.Text`
   color: #fff; /* Cor do texto dentro do menu */
 `;
 
