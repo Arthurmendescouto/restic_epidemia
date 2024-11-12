@@ -55,7 +55,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Página Principal</Text>
-      <Header navigation={navigation} username={username} /> {/* Passa o username para o Header */}
+      <Header navigation={navigation} username={username} /> 
       <Main navigation={navigation} />
 
       {isModalVisible && (
