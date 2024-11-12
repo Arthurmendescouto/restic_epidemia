@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { TouchableOpacity as RNTouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-// Definição da interface para as props do componente Hamburger
 interface HamburgerProps {
     isOpen: boolean;
 }
@@ -16,17 +16,27 @@ export const ButtonWrapper = styled.View`
   background-color: #ececec;
   width: 100%;
   height: 90px;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center; /* Centraliza os outros botões verticalmente */
-  justify-content: flex-end;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 15px; 
 `;
 
 export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
   background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ececec')};
   padding: 25px;
-  width: ${({isOpen})=>(isOpen?270:70)};
+  width: ${({ isOpen }) => (isOpen ? 270 : 70)};
   justify-content: center;
   height: 100%;
-  align-self: flex-end; /* Posiciona o ícone no final do ButtonWrapper */
+  align-self: flex-end;
 `;
+
+export const styles = StyleSheet.create({
+  clientName: {
+    color: 'black',
+    fontSize:21,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,  
+  }
+});
