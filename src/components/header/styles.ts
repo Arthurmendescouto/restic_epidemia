@@ -25,10 +25,11 @@ export const ButtonWrapper = styled.View`
 export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
   background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ececec')};
   padding: 25px;
-  width: ${({ isOpen }) => (isOpen ? "270px" : "70px")};
+  width: ${({ isOpen }) => (isOpen ? "30%" : "70px")};
   justify-content: center;
   height: 100%;
   align-self: flex-end;
+  margin-left: 20px;
 `;
 
 export const styles = StyleSheet.create({
