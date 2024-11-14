@@ -2,17 +2,21 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { NavigationProp } from '@react-navigation/native';
+import { Dimensions } from 'react-native'; // Importando para pegar as dimensões da tela
+
+// Obter a largura da tela
+const { width } = Dimensions.get('window');  // Pega a largura da tela
+const menuWidth = width * 0.5;  // 30% da largura da tela
 
 const MenuContainer = styled.View`
   position: absolute;
   top: 90px; /* Ajuste conforme a altura do seu cabeçalho */
   right: 0;
-  background-color: #7b1111;/* Cor do container do menu */
-  z-index:999;
+  background-color: #7b1111; /* Cor do container do menu */
+  z-index: 999;
   padding: 10px;
-  width: 30%; /* Ajuste a largura conforme necessário */
+  width: ${menuWidth}px; /* 30% da largura da tela */
   height: 1000px; /* Faz o menu ocupar 100% da altura */
-  
 `;
 
 const MenuButton = styled.TouchableOpacity`
