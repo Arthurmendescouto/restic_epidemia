@@ -7,11 +7,12 @@ const MenuContainer = styled.View`
   position: absolute;
   top: 90px; /* Ajuste conforme a altura do seu cabeçalho */
   right: 0;
-  background-color: #7b1111; /* Cor do container do menu */
+  background-color: #7b1111;/* Cor do container do menu */
+  z-index:999;
   padding: 10px;
   width: 30%; /* Ajuste a largura conforme necessário */
   height: 1000px; /* Faz o menu ocupar 100% da altura */
-  z-index: 10; /* Garante que o menu fique acima de outros elementos */
+  
 `;
 
 const MenuButton = styled.TouchableOpacity`

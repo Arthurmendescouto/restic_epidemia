@@ -29,12 +29,12 @@ export function Header({ navigation, username }: HeaderProps) {
                 <Hamburger onPress={toggleMenu} isOpen={menuVisible}>
                     <Icon name="bars" size={24} color={menuVisible ? "#fff" : "#000"} style={{ marginTop: 15 }} />
                 </Hamburger>
-                
                 <Menu 
                     isVisible={menuVisible} 
                     onClose={toggleMenu} 
                     navigation={navigation} 
                 />
+                
             </ButtonWrapper>
         </Container>
     );

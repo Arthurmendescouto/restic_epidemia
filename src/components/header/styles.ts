@@ -19,13 +19,13 @@ export const ButtonWrapper = styled.View`
   flex-direction: row; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 0 15px; 
+  padding: 0px 0px 0px 15px; 
 `;
 
 export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
   background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ececec')};
   padding: 25px;
-  width: ${({ isOpen }) => (isOpen ? "30%" : "70px")};
+  width: ${({ isOpen }) => (isOpen ? "30vw" : "70px")};
   justify-content: center;
   height: 100%;
   align-self: flex-end;

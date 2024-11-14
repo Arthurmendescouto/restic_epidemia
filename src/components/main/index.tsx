@@ -9,11 +9,8 @@ type MainProps = {
 const Main: React.FC<MainProps> = ({ navigation }) => {
   return (
     <View>
-      <Text>Componente Main</Text>
-      <Button
-        title="Exemplo de Navegação"
-        onPress={() => navigation.navigate('NovaPagina')}
-      />
+      <Text>Componente Main Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro voluptatem nulla, ipsam amet earum quidem ab esse temporibus id facere tempora. Facere earum magnam quam dignissimos dolorem, aut distinctio?</Text>
+      
     </View>
   );
 };

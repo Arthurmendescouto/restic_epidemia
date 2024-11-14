@@ -7,30 +7,33 @@ import { Header } from './src/components/header';
 import Main from './src/components/main';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // Importa AsyncStorage
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import '@expo/metro-runtime';
+
 
 const Stack = createNativeStackNavigator();
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
-  const [username, setUsername] = useState<string | null>(null); // Estado para o nome de usuário
+  const [isModalVisible, setIsModalVisible] = useState(false); // Inicia com o modal oculto
+  const [username, setUsername] = useState<string | null>(null);
 
-  // Função para salvar o nome de usuário no AsyncStorage
   const saveUsername = async (username: string) => {
     try {
-      await AsyncStorage.setItem('username', username); // Salva no AsyncStorage
-      setUsername(username); // Atualiza o estado
+      await AsyncStorage.setItem('username', username);
+      setUsername(username);
     } catch (error) {
       console.error("Erro ao salvar nome de usuário:", error);
     }
   };
 
-  // Função para buscar o nome de usuário do AsyncStorage
   const getUsername = async () => {
     try {
       const storedUsername = await AsyncStorage.getItem('username');
       if (storedUsername !== null) {
-        setUsername(storedUsername); // Define o estado com o nome armazenado
+        setUsername(storedUsername);
+        setIsModalVisible(false); // Fecha o modal se o nome estiver salvo
+      } else {
+        setIsModalVisible(true); // Abre o modal se o nome não estiver salvo
       }
     } catch (error) {
       console.error("Erro ao obter nome de usuário:", error);
@@ -38,7 +41,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   };
 
   useEffect(() => {
-    getUsername(); // Busca o nome de usuário ao carregar o componente
+    getUsername(); // Checa o nome de usuário ao carregar o componente
   }, []);
 
   const closeModal = () => {
@@ -55,8 +58,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Página Principal</Text>
-      <Header navigation={navigation} username={username} /> 
       <Main navigation={navigation} />
+      <Header navigation={navigation} username={username} /> 
+      
 
       {isModalVisible && (
         <View style={styles.modalContainer}>
