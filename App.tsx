@@ -57,7 +57,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Página Principal</Text>
+      
       <Main navigation={navigation} />
       <Header navigation={navigation} username={username} /> 
       
