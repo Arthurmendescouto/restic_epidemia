@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
+import styled from 'styled-components';
+import { styles } from './styles';
 
 type MainProps = {
   navigation: NavigationProp<any>;
@@ -8,10 +10,15 @@ type MainProps = {
 
 const Main: React.FC<MainProps> = ({ navigation }) => {
   return (
-    <View>
-      <Text>Componente Main Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro voluptatem nulla, ipsam amet earum quidem ab esse temporibus id facere tempora. Facere earum magnam quam dignissimos dolorem, aut distinctio?</Text>
+    <View style={styles.container}>
+      <View style={styles.section}>
+      <Text style={styles.title}></Text>
+      </View>
+      
       
     </View>
+
+    
   );
 };
 
