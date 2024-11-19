@@ -12,6 +12,7 @@ interface HeaderProps {
 }
 
 export function Header({ navigation, username }: HeaderProps) {
+    
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {
@@ -27,7 +28,7 @@ export function Header({ navigation, username }: HeaderProps) {
                     <Text>Olá, visitante</Text>
                 )}
                 <Hamburger onPress={toggleMenu} isOpen={menuVisible}>
-                    <Icon name="bars" size={24} color={menuVisible ? "#fff" : "#000"} style={{ marginTop: 15 }} />
+                    <Icon name="bars" size={24} color={menuVisible ? "#000" : "#000"} style={{ marginTop: 15 }} />
                 </Hamburger>
                 <Menu 
                     isVisible={menuVisible} 

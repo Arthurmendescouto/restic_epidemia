@@ -17,7 +17,7 @@ export const Container = styled.View`
 `;
 
 export const ButtonWrapper = styled.View`
-  background-color: #ececec;
+  background-color: #fff;
   width: 100%;
   height: 90px;
   flex-direction: row;
@@ -27,7 +27,7 @@ export const ButtonWrapper = styled.View`
 `;
 
 export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
-  background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ececec')};
+  background-color: ${({ isOpen }) => (isOpen ? '#fbfbfb' : '#fff')};
   padding: 25px;
   width: ${({ isOpen }) => (isOpen ? `${hamburgerWidth}px` : "70px")};  /* 30% da largura da tela */
   justify-content: center;
@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
   clientName: {
     color: 'black',
     fontSize: 21,
+    fontFamily:'Poppins_600SemiBold',
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,

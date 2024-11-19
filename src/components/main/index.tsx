@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, Image, ScrollView } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
+import{useFonts,Poppins_400Regular,Poppins_700Bold, Poppins_600SemiBold} from '@expo-google-fonts/poppins'
 import { styles } from './styles';
 
 type MainProps = {
@@ -8,6 +9,14 @@ type MainProps = {
 };
 
 const Main: React.FC<MainProps> = ({ navigation }) => {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+    Poppins_600SemiBold
+  });
+  if(!fontsLoaded){
+    return null
+  }
   return (
     <ScrollView style={styles.container}>
       <View style={styles.section}>
@@ -21,19 +30,9 @@ const Main: React.FC<MainProps> = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.title}>Title 2</Text>
-        <Text style={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iure eligendi asperiores dolorem voluptatibus saepe consequatur numquam assumenda earum laudantium nihil, neque tempora quam quod distinctio ut suscipit esse alias.
-        </Text>
-      </View>
+     
 
-      <View style={styles.section}>
-        <Text style={styles.title}>Title 3</Text>
-        <Text style={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iure eligendi asperiores dolorem voluptatibus saepe consequatur numquam assumenda earum laudantium nihil, neque tempora quam quod distinctio ut suscipit esse alias.
-        </Text>
-      </View>
+      
     </ScrollView>
   );
 };
