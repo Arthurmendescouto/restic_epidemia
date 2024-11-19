@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window');  // Pega a largura da tela
 const hamburgerWidth = width * 0.5;  // 30% da largura da tela
 
 export const Container = styled.View`
-  position: absolute;
+  
   top: 0;
   width: 100%;
 `;
