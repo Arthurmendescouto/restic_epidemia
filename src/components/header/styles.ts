@@ -39,7 +39,7 @@ export const Hamburger = styled(RNTouchableOpacity)<HamburgerProps>`
 export const styles = StyleSheet.create({
   clientName: {
     color: 'black',
-    fontSize: 21,
+    fontSize: 18,
     fontFamily:'Poppins_600SemiBold',
     justifyContent: 'center',
     alignItems: 'center',
