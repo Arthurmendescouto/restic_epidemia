@@ -114,9 +114,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
 const NewScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Nova Página</Text>
-    </View>
+    <Text>asdfasdf</Text>
   );
 };
 
@@ -132,7 +130,7 @@ const App = () => {
         <Stack.Screen
           name="NovaPagina"
           component={NewScreen}
-          options={{ title: 'Nova Página' }}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
       <StatusBar style="auto" />
