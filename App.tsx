@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Header } from './src/components/header';
@@ -9,7 +9,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import '@expo/metro-runtime';
-
+import { Menu } from './src/components/Hamburguer';
 
 const Stack = createNativeStackNavigator();
 
@@ -112,9 +112,39 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   );
 };
 
-const NewScreen = () => {
+const NewScreen = ({ navigation }: { navigation: any }) => {
+  const [username, setUsername] = useState<string | null>(null);
+  const [isMenuVisible, setIsMenuVisible] = useState(false); // Controle do menu
+
+  useEffect(() => {
+    const getUsername = async () => {
+      try {
+        const storedUsername = await AsyncStorage.getItem('username');
+        if (storedUsername !== null) {
+          setUsername(storedUsername);
+        }
+      } catch (error) {
+        console.error("Erro ao obter nome de usuário:", error);
+      }
+    };
+    getUsername();
+  }, []);
+
+  const toggleMenu = () => setIsMenuVisible(!isMenuVisible); // Função para abrir/fechar o menu
+
   return (
-    <Text>asdfasdf</Text>
+    <View style={styles.container}>
+      <Header navigation={navigation} username={username} />
+      <View>
+        
+        <TouchableOpacity onPress={toggleMenu}>
+          {/* Este é o botão para abrir o menu */}
+        </TouchableOpacity>
+      </View>
+
+      {/* Componente Menu */}
+      <Menu isVisible={isMenuVisible} onClose={toggleMenu} navigation={navigation} />
+    </View>
   );
 };
 

@@ -52,11 +52,11 @@ export const Menu: React.FC<MenuProps> = ({ isVisible, onClose, navigation }) =>
 
   return (
     <MenuContainer>
-      <MenuButton onPress={() => { navigation.navigate('NovaPagina'); onClose(); }}>
-        <MenuText>ex1</MenuText>
+      <MenuButton onPress={()=>{navigation.navigate('Home'); onClose();}}>
+        <MenuText>Home</MenuText>
       </MenuButton>
-      <MenuButton onPress={onClose}>
-        <MenuText>ex2</MenuText>
+      <MenuButton onPress={() => { navigation.navigate('NovaPagina'); onClose(); }}>
+        <MenuText>Buscar dados</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
         <MenuText>ex3</MenuText>
