@@ -22,7 +22,7 @@ const Main: React.FC<MainProps> = ({ navigation }) => {
       <View style={styles.section}>
         <Text style={styles.title}>Title 1</Text>
         <Text style={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iure eligendi asperiores dolorem voluptatibus saepe consequatur numquam assumenda earum laudantium nihil, neque tempora quam quod distinctio ut suscipit esse alias.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iure eligendi asperiores dolorem voluptatibus saepe consequatur numquam assumenda earum laudantium nihil, neque tempora quam quod distinctio ut suscipit esse alias .
         </Text>
         <TouchableOpacity
           style={styles.button}
