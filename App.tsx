@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Header } from './src/components/header';
 import Main from './src/components/main';
+import MainNew from './src/components/search-data';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -112,7 +113,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   );
 };
 
-const NewScreen = ({ navigation }: { navigation: any }) => {
+const SearchDataScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState<string | null>(null);
   const [isMenuVisible, setIsMenuVisible] = useState(false); // Controle do menu
 
@@ -134,6 +135,7 @@ const NewScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <MainNew navigation={navigation} />
       <Header navigation={navigation} username={username} />
       <View>
         
@@ -158,8 +160,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="NovaPagina"
-          component={NewScreen}
+          name="SearchData"
+          component={SearchDataScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

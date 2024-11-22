@@ -26,7 +26,7 @@ const Main: React.FC<MainProps> = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('NovaPagina')} // Substitua 'SomeScreen' pela tela de destino
+          onPress={() => navigation.navigate('SearchData')} // Substitua 'SomeScreen' pela tela de destino
         >
           <Text style={styles.buttonText}>Clique Aqui</Text>
         </TouchableOpacity>

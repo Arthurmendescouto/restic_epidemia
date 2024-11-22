@@ -55,7 +55,7 @@ export const Menu: React.FC<MenuProps> = ({ isVisible, onClose, navigation }) =>
       <MenuButton onPress={()=>{navigation.navigate('Home'); onClose();}}>
         <MenuText>Home</MenuText>
       </MenuButton>
-      <MenuButton onPress={() => { navigation.navigate('NovaPagina'); onClose(); }}>
+      <MenuButton onPress={() => { navigation.navigate('SearchData'); onClose(); }}>
         <MenuText>Buscar dados</MenuText>
       </MenuButton>
       <MenuButton onPress={onClose}>
