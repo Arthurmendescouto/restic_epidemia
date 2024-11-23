@@ -93,4 +93,13 @@ export const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
+  stateInfoText: {
+    fontSize: 18,
+    fontFamily: 'Poppins_600SemiBold',
+    color: '#333',
+    marginBottom: 10,
+  },
+  graphic:{
+    flex:1,justifyContent:'center'
+  }
 });
