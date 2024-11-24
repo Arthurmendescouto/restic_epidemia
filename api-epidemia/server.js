@@ -38,6 +38,14 @@ const data = [
   { uf: 'TO', nome: 'Tocantins', casos: 13000, mortes: 350 }
 ];
 
+const pieData = data.map((value, index) => ({
+  value,
+  key: `${index}-${value.uf}`, // Corrigido a interpolação de string
+  svg: {
+    fill: '#FF0000'
+  }
+}));
+
 // Rota para listar todos os estados
 app.get('/estados', (req, res) => {
   res.json(data);
@@ -57,5 +65,7 @@ app.get('/estados/:uf', (req, res) => {
 
 // Iniciar o servidor
 app.listen(port, () => {
-  console.log(`API rodando em http://localhost:${port}`);
+  console.log(`API rodando em http://localhost:${port}`); // Corrigido o uso de template string
 });
+
+module.exports = { pieData };

@@ -50,8 +50,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleLogin = (values: { username: string, password: string }) => {
-    console.log("Usuário:", values.username);
-    console.log("Senha:", values.password);
+    
     saveUsername(values.username); // Salva o nome de usuário no AsyncStorage
     closeModal();
   };
@@ -153,7 +152,7 @@ const SearchDataScreen = ({ navigation }: { navigation: any }) => {
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Home" id={undefined}>
         <Stack.Screen
           name="Home"
           component={HomeScreen}

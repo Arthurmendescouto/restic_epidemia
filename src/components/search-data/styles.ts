@@ -23,6 +23,13 @@ export const styles = StyleSheet.create({
     fontFamily: 'Poppins_600SemiBold',
     textAlign: 'center',
   },
+  errorText:{
+    fontSize: 16,
+    color: '#000',
+    lineHeight: 24,
+    fontFamily: 'Poppins_600SemiBold',
+    textAlign: 'center',
+  },
   image: {
     width: '100%',
     objectFit: 'contain',

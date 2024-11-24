@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 import { useFonts, Poppins_400Regular, Poppins_700Bold, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import { styles } from './styles';
 import axios from 'axios';
 import { Picker } from '@react-native-picker/picker';
-import { PieChart } from 'react-native-svg-charts'
+
+
 type MainNewProps = {
   navigation: NavigationProp<any>;
 };
@@ -42,8 +43,9 @@ const states = [
 
 const MainNew: React.FC<MainNewProps> = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
-  const [selectedState, setSelectedState] = useState<string>(''); // Alterado para uma string vazia
-  const [stateData, setStateData] = useState<{ casos: number; mortes: number } | null>(null); // Estado para armazenar os dados do estado
+  const [selectedState, setSelectedState] = useState<string>('');
+  const [stateData, setStateData] = useState<{ casos: number; mortes: number } | null>(null);
+  const [errorMessage, setErrorMessage] = useState('');
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_700Bold,
@@ -54,42 +56,48 @@ const MainNew: React.FC<MainNewProps> = ({ navigation }) => {
     return null;
   }
 
+  const handleSearch = () => {
+    if (selectedState) {
+      setErrorMessage('');
+      axios
+        .get(`http://192.168.3.65:3000/estados/${selectedState}`) // Substituir pelo IP correto
+        .then((res) => {
+          setStateData(res.data);
+        })
+        .catch((err) => {
+          console.error('Erro ao buscar os dados:', err);
+          setErrorMessage('Erro ao buscar os dados. Verifique sua conexão ou tente novamente.');
+          setStateData(null);
+        });
+    } else {
+      setErrorMessage('Selecione um estado antes de pesquisar.');
+    }
+  };
+
   const filteredStates = states.filter((state) =>
     state.name.toLowerCase().includes(searchText.toLowerCase()) ||
     state.abbreviation.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  const handleSearch = () => {
-    if (selectedState) {
-      axios
-        .get(`http://localhost:3000/estados/${selectedState}`)
-        .then((res) => {
-          setStateData(res.data); // Atualiza o estado com os dados da API
-        })
-        .catch((err) => {
-          console.log('Erro ao buscar os dados:', err);
-          setStateData(null); // Limpa os dados em caso de erro
-        });
-    } else {
-      console.log('Nenhum estado selecionado.');
-    }
-  };
+  const pieData = stateData
+    ? [
+        { key: 1, value: stateData.casos, svg: { fill: '#600080' } },
+        { key: 2, value: stateData.mortes, svg: { fill: '#9900cc' } },
+      ]
+    : [];
 
-  
   return (
     <ScrollView style={styles.container}>
       <View style={styles.section}>
         <Text style={styles.title}>Buscar Estado</Text>
-        <Text style={styles.text}>
-          Digite o nome do estado ou selecione diretamente da lista.
-        </Text>
+        <Text style={styles.text}>Digite o nome do estado ou selecione diretamente da lista.</Text>
         <View style={styles.inputContainer}>
           <Picker
             style={styles.input}
             selectedValue={selectedState}
             onValueChange={(itemValue) => setSelectedState(itemValue)}
           >
-            <Picker.Item label="Selecione um estado" value="" /> {/* Adicionado valor padrão */}
+            <Picker.Item label="Selecione um estado" value="" />
             {states.map((state) => (
               <Picker.Item key={state.abbreviation} label={state.name} value={state.abbreviation} />
             ))}
@@ -98,31 +106,15 @@ const MainNew: React.FC<MainNewProps> = ({ navigation }) => {
             <Text style={styles.buttonText}>Pesquisar</Text>
           </TouchableOpacity>
         </View>
-        <FlatList
-          data={filteredStates}
-          keyExtractor={(item) => item.abbreviation}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={[styles.stateItem, selectedState === item.abbreviation && styles.selectedState]}
-              onPress={() => {
-                setSelectedState(item.abbreviation);
-                setSearchText(item.name); // Atualiza o input com o nome completo
-              }}
-            >
-              <Text style={styles.stateText}>
-                {item.name} ({item.abbreviation})
-              </Text>
-            </TouchableOpacity>
-          )}
-        />
-        {/* Exibir os dados após a pesquisa */}
+
+        {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
+      
+
         {stateData && (
           <View style={styles.stateData}>
             <Text style={styles.stateInfoText}>Casos: {stateData.casos}</Text>
             <Text style={styles.stateInfoText}>Mortes: {stateData.mortes}</Text>
-            <View style={styles.graphic}>
             
-            </View>
           </View>
         )}
       </View>
