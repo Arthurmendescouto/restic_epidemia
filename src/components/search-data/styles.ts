@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     margin: 5,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     marginBottom: 8,
     color: '#000',
     fontFamily: 'Poppins_700Bold',
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'Poppins_600SemiBold',
     textAlign: 'center',
   },
-  errorText:{
+  errorText: {
     fontSize: 16,
     color: '#000',
     lineHeight: 24,
@@ -50,22 +50,24 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Poppins_700Bold',
   },
-  // Novos estilos para a busca de estados
+  // Estilos ajustados para a busca de estados
   inputContainer: {
-    flexDirection: 'row',
+    backgroundColor:'#fff',
+    flexDirection: 'column',  // Altere para coluna para evitar problemas com o layout do Picker
     alignItems: 'center',
     marginTop: 15,
     marginBottom: 15,
-    width: '90%',
+    width: '100%',  
   },
   input: {
-    flex: 1,
-    height: 40,
+    
+    width: '90%',  // Aumente a largura do Picker para 90%
+    height: 60,  // Aumente a altura para tornar o Picker mais visível
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
     paddingHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#d3d3d3',
     fontSize: 14,
     fontFamily: 'Poppins_400Regular',
     marginRight: 10,
@@ -90,23 +92,26 @@ export const styles = StyleSheet.create({
     color: '#333',
     fontFamily: 'Poppins_600SemiBold',
   },
-  
+
   // Estilo para exibição dos dados do estado
   stateData: {
-    marginTop: 20,
+    marginTop: -20,  // Ajuste da margem para garantir que o conteúdo não se sobreponha
     padding: 15,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#fff',
     borderRadius: 10,
     width: '100%',
+    // Remover a altura fixa
     alignItems: 'center',
   },
   stateInfoText: {
+    justifyContent: 'center',
     fontSize: 18,
     fontFamily: 'Poppins_600SemiBold',
     color: '#333',
     marginBottom: 10,
   },
-  graphic:{
-    flex:1,justifyContent:'center'
-  }
+  graphic: {
+    flex: 1,
+    justifyContent: 'center',
+  },
 });

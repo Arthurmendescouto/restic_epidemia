@@ -163,6 +163,7 @@ const App = () => {
           component={SearchDataScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name='Contato' component={}/>
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
