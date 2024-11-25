@@ -33,5 +33,4 @@ Para visualizar o projeto em seu celular:
   - População saudável.
 - Responsividade para múltiplas plataformas (iOS, Android e Web).
 
-- ---
-**OBS:**
+
