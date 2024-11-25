@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from '../header'; 
 
 const Contato = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Informações para contato e suporte</Text>
-      <Text style={styles.info}>Email: arthurmendescouto16@gmail.com</Text>
-      <Text style={styles.info}>Telefone: (73) 98231-4739</Text>
+      <Text style={styles.info}>Email: welldome@gmail.com</Text>
+      <Text style={styles.info}>Telefone: (99) 99999-9999</Text>
     </View>
   );
 };

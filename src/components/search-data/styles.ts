@@ -114,4 +114,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  resultContainer: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#f4f4f4',
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  resultText: {
+    fontFamily: 'Poppins_600SemiBold', // Certifique-se de que a fonte Poppins foi carregada corretamente
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
+  },
 });

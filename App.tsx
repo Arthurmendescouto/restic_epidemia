@@ -16,7 +16,7 @@ import Contato from './src/components/contact';
 const Stack = createNativeStackNavigator();
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false); // Inicia com o modal oculto
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
 
   const saveUsername = async (username: string) => {
@@ -33,34 +33,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
       const storedUsername = await AsyncStorage.getItem('username');
       if (storedUsername !== null) {
         setUsername(storedUsername);
-        setIsModalVisible(false); // Fecha o modal se o nome estiver salvo
+        setIsModalVisible(false);
       } else {
-        setIsModalVisible(true); // Abre o modal se o nome não estiver salvo
-      }
-    } catch (error) {
-      console.error("Erro ao obter nome de usuário:", error);
-    }
-  };const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false); // Inicia com o modal oculto
-  const [username, setUsername] = useState<string | null>(null);
-
-  const saveUsername = async (username: string) => {
-    try {
-      await AsyncStorage.setItem('username', username);
-      setUsername(username);
-    } catch (error) {
-      console.error("Erro ao salvar nome de usuário:", error);
-    }
-  };
-
-  const getUsername = async () => {
-    try {
-      const storedUsername = await AsyncStorage.getItem('username');
-      if (storedUsername !== null) {
-        setUsername(storedUsername);
-        setIsModalVisible(false); // Fecha o modal se o nome estiver salvo
-      } else {
-        setIsModalVisible(true); // Abre o modal se o nome não estiver salvo
+        setIsModalVisible(true);
       }
     } catch (error) {
       console.error("Erro ao obter nome de usuário:", error);
@@ -68,7 +43,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   };
 
   useEffect(() => {
-    getUsername(); // Checa o nome de usuário ao carregar o componente
+    getUsername();
   }, []);
 
   const closeModal = () => {
@@ -76,88 +51,14 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   };
 
   const handleLogin = (values: { username: string, password: string }) => {
-    
-    saveUsername(values.username); // Salva o nome de usuário no AsyncStorage
+    saveUsername(values.username);
     closeModal();
   };
 
   return (
     <View style={styles.container}>
-      
       <Main navigation={navigation} />
-      <Header navigation={navigation} username={username} /> 
-      
-
-      {isModalVisible && (
-        <View style={styles.modalContainer}>
-          <View style={styles.modal}>
-            <Text style={styles.modalText}>Login</Text>
-            <Formik
-              initialValues={{ username: '', password: '' }}
-              validationSchema={Yup.object({
-                username: Yup.string()
-                  .required('Nome de usuário é obrigatório')
-                  .min(4, 'Nome de usuário deve ter pelo menos 4 caracteres'),
-                password: Yup.string()
-                  .required('Senha é obrigatória')
-                  .min(6, 'A senha deve ter pelo menos 6 caracteres'),
-              })}
-              onSubmit={handleLogin}
-            >
-              {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                <View style={styles.form}>
-                  <View style={styles.inputGroup}>
-                    <Text>Usuário:</Text>
-                    <TextInput
-                      style={styles.input}
-                      onChangeText={handleChange('username')}
-                      onBlur={handleBlur('username')}
-                      value={values.username}
-                    />
-                    {touched.username && errors.username && <Text style={styles.error}>{errors.username}</Text>}
-                  </View>
-                  <View style={styles.inputGroup}>
-                    <Text>Senha:</Text>
-                    <TextInput
-                      style={styles.input}
-                      onChangeText={handleChange('password')}
-                      onBlur={handleBlur('password')}
-                      value={values.password}
-                      secureTextEntry
-                    />
-                    {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
-                  </View>
-                  <Button title="Logar" onPress={() => handleSubmit()} />
-                </View>
-              )}
-            </Formik>
-          </View>
-        </View>
-      )}
-    </View>
-  );
-};
-
-  useEffect(() => {
-    getUsername(); // Checa o nome de usuário ao carregar o componente
-  }, []);
-
-  const closeModal = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleLogin = (values: { username: string, password: string }) => {
-    
-    saveUsername(values.username); // Salva o nome de usuário no AsyncStorage
-    closeModal();
-  };
-
-  return (
-    <View style={styles.container}>
-      
-      <Main navigation={navigation} />
-      <Header navigation={navigation} username={username} /> 
-      
+      <Header navigation={navigation} username={username} />
 
       {isModalVisible && (
         <View style={styles.modalContainer}>
@@ -211,7 +112,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
 const SearchDataScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState<string | null>(null);
-  const [isMenuVisible, setIsMenuVisible] = useState(false); // Controle do menu
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
     const getUsername = async () => {
@@ -227,27 +128,21 @@ const SearchDataScreen = ({ navigation }: { navigation: any }) => {
     getUsername();
   }, []);
 
-  const toggleMenu = () => setIsMenuVisible(!isMenuVisible); // Função para abrir/fechar o menu
+  const toggleMenu = () => setIsMenuVisible(!isMenuVisible);
 
   return (
     <View style={styles.container}>
       <MainNew navigation={navigation} />
       <Header navigation={navigation} username={username} />
-      <View>
-        
-        <TouchableOpacity onPress={toggleMenu}>
-          {/* Este é o botão para abrir o menu */}
-        </TouchableOpacity>
-      </View>
-
-      {/* Componente Menu */}
+      <TouchableOpacity onPress={toggleMenu} />
       <Menu isVisible={isMenuVisible} onClose={toggleMenu} navigation={navigation} />
     </View>
   );
 };
+
 const Contact = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState<string | null>(null);
-  const [isMenuVisible, setIsMenuVisible] = useState(false); // Controle do menu
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
     const getUsername = async () => {
@@ -263,46 +158,26 @@ const Contact = ({ navigation }: { navigation: any }) => {
     getUsername();
   }, []);
 
-  const toggleMenu = () => setIsMenuVisible(!isMenuVisible); // Função para abrir/fechar o menu
+  const toggleMenu = () => setIsMenuVisible(!isMenuVisible);
 
   return (
     <View style={styles.container}>
-      <MainNew navigation={navigation} />
+      <Contato />
       <Header navigation={navigation} username={username} />
-      <View>
-        
-        <TouchableOpacity onPress={toggleMenu}>
-          {/* Este é o botão para abrir o menu */}
-        </TouchableOpacity>
-      </View>
-
-      {/* Componente Menu */}
+      <TouchableOpacity onPress={toggleMenu} />
       <Menu isVisible={isMenuVisible} onClose={toggleMenu} navigation={navigation} />
+      
     </View>
   );
 };
-
-
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" id={undefined}>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SearchData"
-          component={SearchDataScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Contato"
-          component={Contato}
-          options={{ headerShown:false}}
-        />
+      <Stack.Navigator id={undefined} initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SearchData" component={SearchDataScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Contato" component={Contact} options={{ headerShown: false }} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
@@ -312,15 +187,9 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'column-reverse',
-    justifyContent:'flex-end',
+    flexDirection: 'column-reverse',
+    justifyContent: 'flex-end',
     backgroundColor: '#d4d4d4',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#000000',
-    marginBottom: 20,
   },
   modalContainer: {
     position: 'absolute',
