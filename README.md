@@ -1,6 +1,6 @@
 #  Protótipo do Welldome
 
-Este protótipo foi desenvolvido utilizando React Native com Expo, permitindo a busca e visualização de dados sobre epidemias nos estados brasileiros de forma mobile, com gráficos interativos que facilitam a análise das informações.
+Este protótipo foi desenvolvido utilizando React Native com Expo, permitindo a busca e visualização de dados sobre a influência das epidemias em cada estado brasileiro de forma mobile, com gráficos interativos que facilitam a análise das informações.
 ---
  
 ## 📲 Acesse o Projeto
