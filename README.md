@@ -35,11 +35,11 @@ Para visualizar o projeto em seu celular:
 
 ## 🚀 Como rodar o projeto localmente
 -Primeiro, clone o repositório para sua máquina local:
-  git clone https://github.com/Arthurmendescouto/restic_epidemia.git
-- Agora execute os seguintes passos no terminal para instalar as dependências:
+  -git clone https://github.com/Arthurmendescouto/restic_epidemia.git
+-Agora execute os seguintes passos no terminal para instalar as dependências:
   
-  cd restic_epidemia
-  rm -rf node_modules package-lock.json 
-  npm install
+  -cd restic_epidemia
+  -rm -rf node_modules package-lock.json 
+  -npm install
   
 -Após instalar essas dependências execute "npx expo start" no terminal para que o projeto seja rodado, para visualiza-lo instale o Expo Go no seu celular e leia o QR code que será gerado no terminal.
