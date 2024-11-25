@@ -33,3 +33,6 @@ Para visualizar o projeto em seu celular:
   - Mortes.
   - População saudável.
 - Responsividade para múltiplas plataformas (iOS, Android e Web).
+
+- ---
+OBS: O projeto é um protótipo.
