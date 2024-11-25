@@ -11,7 +11,7 @@ Para visualizar o projeto em seu celular:
 2. Clique no link abaixo para abrir o projeto:
    - **[Clique aqui para visualizar o projeto](https://expo.dev/preview/update?message=restic_epidemia&updateRuntimeVersion=1.0.0&createdAt=2024-11-25T00%3A58%3A46.762Z&slug=exp&projectId=8f3115d5-4eec-47e8-806e-5c32e1593fd0&group=7477835c-3aa0-4c11-b3c0-7e65336b8315)**
 3. Escaneie o QR Code gerado com o **Expo Go** para acessar o aplicativo.
- 
+  
 ---
 
 ## 🛠️ Tecnologias Utilizadas
