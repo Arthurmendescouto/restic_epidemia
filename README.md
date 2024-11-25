@@ -36,8 +36,8 @@ Para visualizar o projeto em seu celular:
 ## 🚀 Como rodar o projeto localmente
 
 • Primeiro, clone o repositório para sua máquina local:
-   ```bash
-  git clone https://github.com/Arthurmendescouto/restic_epidemia.git
+
+  - `git clone https://github.com/Arthurmendescouto/restic_epidemia.git`
 
 • Agora execute os seguintes passos no terminal para instalar as dependências:
 
