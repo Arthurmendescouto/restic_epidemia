@@ -3,7 +3,7 @@
 Este projeto é uma aplicação React Native desenvolvida com Expo, que permite buscar informações sobre casos de epidemias nos estados brasileiros e apresenta visualizações gráficas dos dados.
 
 ---
-
+ 
 ## 📲 Acesse o Projeto
 
 Para visualizar o projeto em seu celular:
