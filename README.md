@@ -1,7 +1,6 @@
-# Welldome
+#  Protótipo do Welldome
 
-Este projeto é uma aplicação React Native desenvolvida com Expo, que permite buscar informações sobre casos de epidemias nos estados brasileiros e apresenta visualizações gráficas dos dados.
-
+Este protótipo foi desenvolvido utilizando React Native com Expo, permitindo a busca e visualização de dados sobre epidemias nos estados brasileiros de forma mobile, com gráficos interativos que facilitam a análise das informações.
 ---
  
 ## 📲 Acesse o Projeto
@@ -35,4 +34,4 @@ Para visualizar o projeto em seu celular:
 - Responsividade para múltiplas plataformas (iOS, Android e Web).
 
 - ---
-**OBS: Este projeto encontra-se atualmente em fase de prototipação para validação inicial**
+**OBS:**
