@@ -35,4 +35,4 @@ Para visualizar o projeto em seu celular:
 - Responsividade para múltiplas plataformas (iOS, Android e Web).
 
 - ---
-OBS: O projeto é um protótipo.
+**OBS: Este projeto encontra-se atualmente em fase de prototipação para validação inicial**
